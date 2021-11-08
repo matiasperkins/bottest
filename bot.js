@@ -1,5 +1,6 @@
 const { Telegraf, Scenes, session } = require('telegraf');
 const db = require('./util/database');
+const { bot_token } = require('./consts');
 
 const User = class User {
     constructor(name, phone) {
@@ -35,7 +36,7 @@ const superWizard = new Scenes.WizardScene(
 );
 const stage = new Scenes.Stage([superWizard]);
 
-const bot = new Telegraf('1976609777:AAH99hJm3OVJJo5H6N3XyyWx5FvsquJApug');
+const bot = new Telegraf(bot_token.token);
 
 bot.use(session());
 bot.use(stage.middleware());
